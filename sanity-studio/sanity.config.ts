@@ -9,7 +9,7 @@ export default defineConfig({
 
   projectId: 'mqnvg5ou',
   dataset: 'production',
-  basePath: "/protfolio",
+  basePath: "/portfolio",
   plugins: [deskTool(), visionTool()],
 
   schema: {
