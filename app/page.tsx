@@ -2,6 +2,14 @@
 import Image from "next/image";
 import { getProfile } from "@/sanity/lib/sanity.query";
 import type { ProfileType } from "@/types";
+import Link from "next/link";
+import About from "./components/about";
+import Contact from "./components/contact";
+import Experience from "./components/experience";
+import Intro from "./components/intro";
+import Projects from "./components/projects";
+import SectionDivider from "./components/section-divider";
+import Skills from "./components/skills";
 
 export default async function Home() {
   const profile: ProfileType[] = await getProfile();
@@ -9,7 +17,7 @@ export default async function Home() {
   return (
     <>
       {/* <button onClick={() => console.log("Hey")}>Click Me</button> */}
-      <main className="max-w-7xl mx-auto lg:px-16 px-6">
+      {/* <main className="max-w-7xl mx-auto lg:px-16 px-6">
       <section className="flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between gap-x-12 lg:mt-32 mt-20 mb-16">
         {profile &&
           profile.map((data) => (
@@ -38,6 +46,15 @@ export default async function Home() {
             </div>
           ))}
       </section>
+    </main> */}
+    <main className="flex flex-col items-center px-4">
+      <Intro />
+      <SectionDivider />
+      <About />
+      <Projects />
+      <Skills />
+      <Experience />
+      <Contact />
     </main>
     </>
   );
