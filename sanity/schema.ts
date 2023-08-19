@@ -1,3 +1,4 @@
+import { type SchemaTypeDefinition } from 'sanity'
 import { defineField } from "sanity";
 import { BiUser } from "react-icons/bi";
 
@@ -18,7 +19,7 @@ const profile = {
       title: "Headline",
       type: "string",
       description: "In one short sentence, what do you do?",
-      validation: (Rule) => Rule.required().min(40).max(50),
+      validation: (Rule) => Rule.required().min(10).max(100),
     }),
     {
       name: "profileImage",
@@ -108,4 +109,6 @@ const profile = {
  ],
 };
 
-export default profile;
+export const schema: { types: SchemaTypeDefinition[] } = {
+  types: [profile],
+}
