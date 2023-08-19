@@ -18,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script src="https://kit.fontawesome.com/85cf5382dc.js" crossOrigin="anonymous"></script>
-
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto&family=Ubuntu:wght@300&display=swap" rel="stylesheet"/>
       </head>
       <body className={inter.className}>{children}</body>
     </html>
