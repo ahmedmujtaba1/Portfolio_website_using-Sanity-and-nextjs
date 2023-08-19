@@ -8,7 +8,7 @@ export function Navbar() {
   return (
     <div className=" bg-white ">
 
-      <nav className="shadow-xl 2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
+      <nav className="shadow-xl top-0 left-0 right-0 fixed 2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
         {/* For large and Medium-sized Screen */}
         <div className="flex justify-between ">
           <div className="hidden sm:flex flex-row items-center space-x-6">
