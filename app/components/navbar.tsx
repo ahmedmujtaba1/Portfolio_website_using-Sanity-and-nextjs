@@ -7,7 +7,7 @@ export function Navbar() {
   const [show, setshow] = useState(false);
   return (
     <div className=" bg-white ">
-      <nav className="shadow-xl bg-white fixed top-0 w-full p-4">
+      <nav className="shadow-xl bg-white fixed top-0 w-full p-4 z-10">
         {/* For large and Medium-sized Screen */}
         <div className="flex justify-between ">
           <div className="hidden sm:flex flex-row items-center space-x-6">
