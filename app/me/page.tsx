@@ -6,6 +6,7 @@ import type { ProfileType } from "@/types";
 import { Navbar } from "@/app/components/navbar"
 import { Cta } from "@/app/components/cta"
 import { Services } from "@/app/components/services"
+import { Projects } from "@/app/components/projects"
 
 export default async function About() {
   const profile: ProfileType[] = await getProfile();
@@ -15,6 +16,7 @@ export default async function About() {
         <Navbar/>
         <Cta/>
         <Services/>
+        <Projects/>
     </>
   );
 }
