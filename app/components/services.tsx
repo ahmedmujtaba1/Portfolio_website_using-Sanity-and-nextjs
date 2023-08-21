@@ -19,7 +19,7 @@ export const Services = () => {
             <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3">
               <div className="m-4 wow fadeInRight" data-wow-delay="0.3s">
                 <div className="icon text-5xl">
-                  <i className="lni lni-cog"></i>
+                    <i className="fa-solid fa-code"></i>
                 </div>
                 <div>
                   <h3 className="service-title">Web Development</h3>
@@ -80,21 +80,6 @@ export const Services = () => {
               </div>
             </div>
             {/* Services item  */}
-            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3">
-              <div className="m-4 wow fadeInRight" data-wow-delay="1.5s">
-                <div className="icon text-5xl">
-                  <i className="lni lni-mobile"></i>
-                </div>
-                <div>
-                  <h3 className="service-title">App Development</h3>
-                  <p className="text-gray-600">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Unde perspiciatis dicta labore nulla beatae quaerat quia
-                    incidunt laborum aspernatur...
-                  </p>
-                </div>
-              </div>
-            </div>
             <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3">
               <div className="m-4 wow fadeInRight" data-wow-delay="1.8s">
                 <div className="icon text-5xl">
