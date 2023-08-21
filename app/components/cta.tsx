@@ -67,7 +67,7 @@ export const Cta = () => {
   };
   return (
     <>
-      <div className="md:mx-auto md:container px-4">
+      <div id="cta" className="md:mx-auto md:container px-4">
         <div className="pt-24 md:pt-32">
           <div className="container mx-auto">
             <div className="flex flex-wrap items-center pb-12">
