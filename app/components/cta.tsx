@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import React from "react";
+import Link from "next/link"
 export const Cta = () => {
   const phrases = [
     "an Expert Python Developer.",
@@ -52,6 +53,16 @@ export const Cta = () => {
 
     return () => clearInterval(cursorInterval);
   }, []);
+
+  const handleDownload = () => {
+    const fileUrl = '/CV.pdf';
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = 'Ahmed Mujtaba CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <>
       <div className="md:mx-auto md:container px-4">
@@ -144,18 +155,14 @@ export const Cta = () => {
               <div className="md:w-1/2 lg:w-2/3 w-full lg:pl-20 md:pl-10 sm:pl-0 pl-0">
                 <div className="py-2 text-color">
                   <h1 className="text-2xl lg:text-6xl tracking-tighter md:leading-snug f-f-l font-black">
-                    Easily manage sales through our invoicing system
+                    I am avaliable for Python and Web Development.
                   </h1>
                   <h2 className="text-lg lg:text-3xl leading-7 md:leading-10 f-f-r py-8">
-                    Here at Globex we take special care of what your
-                    organization needs instead of selling you a mass market tool
-                    that takes a one size fits all approach. I personally review
-                    each and every client business and oversee the team that
-                    tailores a solution
+                   I am an Expert Python Developer, Web Scraper and Full Stack Developer with Django and Next.js. I have experience of +2 yrs.
                   </h2>
                   <div className="flex items-center cursor-pointer pb-4 md:pb-0">
                     <h3 className="f-f-r text-lg lg:text-2xl font-semibold underline text-indigo-700">
-                      Lets Get Started
+                      <Link href={"#"} onClick={handleDownload}>Download My CV.</Link>
                     </h3>
                     <div className="pl-2">
                       <svg
