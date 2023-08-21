@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import React from "react";
 export const Cta = () => {
   const phrases = [
-    "Expert Python Developer.",
-    "Full Stack Developer with Django and Next.js.",
-    "Expert Web Scraper.",
+    "an Expert Python Developer.",
+    "a Full Stack Developer with Django and Next.js.",
+    "an Expert Web Scraper.",
   ];
 
   const [text, setText] = useState("");
@@ -55,7 +55,7 @@ export const Cta = () => {
   return (
     <>
       <div className="md:mx-auto md:container px-4">
-        <div className="pt-10 md:pt-32">
+        <div className="pt-24 md:pt-32">
           <div className="container mx-auto">
             <div className="flex flex-wrap items-center pb-12">
               <div className="md:w-1/2 lg:w-2/3 w-full xl:pr-20 md:pr-6">
@@ -65,7 +65,7 @@ export const Cta = () => {
                     <span className="text-indigo-700">Ahmed Mujtaba</span>
                   </h1>
                   <h2 className="text-lg lg:text-3xl lg:leading-7 md:leading-10 f-f-r py-4 md:py-8">
-                    I am an <span className="text-indigo-700">{text}</span>
+                    I'm <span className="text-indigo-700">{text}</span>
                     <span
                       className={cursorVisible ? "opacity-100" : "opacity-0"}
                     >
@@ -118,7 +118,7 @@ export const Cta = () => {
                       <div className="flex items-center pl-3 text-green-400">
                         
                         <p className="text-green-400 text-xs tracking-wide font-bold leading-normal pl-1">
-                          2 yrs
+                          2 yrs +
                         </p>
                       </div>
                       <p className="font-normal text-xs text-right leading-4 text-green-400 tracking-normal">

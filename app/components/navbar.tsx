@@ -1,29 +1,34 @@
 "use client";
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
 export function Navbar() {
   const [show, setshow] = useState(false);
   return (
     <div className=" bg-white ">
-
-      <nav className="shadow-xl top-0 left-0 right-0 fixed 2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
+      <nav className="shadow-xl bg-white fixed top-0 w-full p-4">
         {/* For large and Medium-sized Screen */}
         <div className="flex justify-between ">
           <div className="hidden sm:flex flex-row items-center space-x-6">
             <Link href="https://twitter.com/Ahmed_Mujtaba69" target="_blank">
-                {/* <FontAwesomeIcon icon="twitter" bounce /> */}
-                <i className="fa-brands fa-twitter fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
+              {/* <FontAwesomeIcon icon="twitter" bounce /> */}
+              <i className="fa-brands fa-twitter fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
             </Link>
-            <Link href="https://linkedin.com/in/creative-programmer/" target="_blank">
-                <i className="fa-brands fa-linkedin-in fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-700"></i>
+            <Link
+              href="https://linkedin.com/in/creative-programmer/"
+              target="_blank"
+            >
+              <i className="fa-brands fa-linkedin-in fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-700"></i>
             </Link>
             <Link href="https://github.com/ahmedmujtaba1" target="_blank">
-                <i className="fa-brands fa-github fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"></i>
+              <i className="fa-brands fa-github fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"></i>
             </Link>
-            <Link href="https://www.facebook.com/profile.php?id=100090336582213" target="_blank">
-                <i className="fa-brands fa-facebook fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-700"></i>
+            <Link
+              href="https://www.facebook.com/profile.php?id=100090336582213"
+              target="_blank"
+            >
+              <i className="fa-brands fa-facebook fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-700"></i>
             </Link>
           </div>
           <div className=" flex space-x-3 items-center">
@@ -118,21 +123,26 @@ export function Navbar() {
           className={`${show ? "block" : "hidden"} sm:hidden mt-4 mx-auto`}
         >
           <div className="flex flex-row items-center justify-center space-x-6">
-          <Link href="https://twitter.com/Ahmed_Mujtaba69" target="_blank">
-                <i className="fa-brands fa-twitter fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
+            <Link href="https://twitter.com/Ahmed_Mujtaba69" target="_blank">
+              <i className="fa-brands fa-twitter fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
             </Link>
-            <Link href="https://linkedin.com/in/creative-programmer" target="_blank">
-                <i className="fa-brands fa-linkedin-in fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
+            <Link
+              href="https://linkedin.com/in/creative-programmer"
+              target="_blank"
+            >
+              <i className="fa-brands fa-linkedin-in fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
             </Link>
             <Link href="https://github.com/ahmedmujtaba1" target="_blank">
-                <i className="fa-brands fa-github fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
+              <i className="fa-brands fa-github fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
             </Link>
-            <Link href="https://www.facebook.com/profile.php?id=100090336582213" target="_blank">
-                <i className="fa-brands fa-facebook fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
+            <Link
+              href="https://www.facebook.com/profile.php?id=100090336582213"
+              target="_blank"
+            >
+              <i className="fa-brands fa-facebook fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
             </Link>
           </div>
           <div className="flex flex-col gap-4 mt-4 w-80 mx-auto ">
-          
             <button className="rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center">
               Contact Us
             </button>
