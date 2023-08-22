@@ -8,6 +8,7 @@ import { Cta } from "@/app/components/cta"
 import { Services } from "@/app/components/services"
 import { Projects } from "@/app/components/projects"
 import { Testimonials } from "@/app/components/testimonals"
+import { Contact } from "@/app/components/contact"
 
 export default async function About() {
   const profile: ProfileType[] = await getProfile();
@@ -19,6 +20,7 @@ export default async function About() {
         <Services/>
         <Projects/>
         <Testimonials/>
+        <Contact/>
     </>
   );
 }
