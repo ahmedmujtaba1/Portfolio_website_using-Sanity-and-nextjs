@@ -9,18 +9,20 @@ import { Services } from "@/app/components/services"
 import { Projects } from "@/app/components/projects"
 import { Testimonials } from "@/app/components/testimonals"
 import { Contact } from "@/app/components/contact"
+import { Footer } from "@/app/components/footer"
 
 export default async function About() {
   const profile: ProfileType[] = await getProfile();
 
   return (
     <>
-        <Navbar/>
+        <Navbar/> 
         <Cta/>
         <Services/>
         <Projects/>
         <Testimonials/>
         <Contact/>
+        <Footer/>
     </>
   );
 }
