@@ -4,12 +4,15 @@ export type ProfileType = {
   _id: string,
   fullName: string,
   headline: string,
+  headline2: string,
   profileImage: {
     alt: string,
     image: string
   },
   shortBio: string,
   email: string,
+  projects: number,
+  experience: number,
   fullBio: PortableTextBlock[],
   location: string,
   resumeURL: string,

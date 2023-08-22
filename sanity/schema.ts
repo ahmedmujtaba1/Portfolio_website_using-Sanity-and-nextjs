@@ -21,6 +21,13 @@ const profile = {
       description: "In one short sentence, what do you do?",
       validation: (Rule) => Rule.required().min(10).max(100),
     }),
+    defineField({
+      name: "headline2",
+      title: "Headline no 2",
+      type: "string",
+      description: "In one short sentence, what do you do?",
+      validation: (Rule) => Rule.required().min(10).max(100),
+    }),
     {
       name: "profileImage",
       title: "Profile Image",
@@ -45,6 +52,16 @@ const profile = {
       name: "email",
       title: "Email Address",
       type: "string",
+    },
+    {
+      name: "experience",
+      title: "What's your experience",
+      type: "number",
+    },
+    {
+      name: "projects",
+      title: "What's your number of projects you have done",
+      type: "number",
     },
     {
       name: "location",
@@ -87,10 +104,10 @@ const profile = {
           initialValue: "https://twitter.com/",
         },
         {
-          name: "twitch",
-          title: "Twitch URL",
+          name: "facebook",
+          title: "Facebook URL",
           type: "url",
-          initialValue: "https://twitch.com/",
+          initialValue: "https://facebook.com/",
         },
       ],
       options: {
