@@ -7,7 +7,9 @@ import Link from "next/link";
 import {fetchProfileData}  from "./ProfileContext"
 
 
-export async function Navbar() {
+export function Navbar() {
+
+  // const profile = await fetchProfileData();
   const [show, setshow] = useState(false);
   const [profile, setProfile] = React.useState<ProfileType[]>([]);
 
