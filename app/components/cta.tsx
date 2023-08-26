@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link"
 import Image from "next/image"
 import myPic from "@/public/mypic.jpg"
@@ -10,11 +9,10 @@ import {fetchProfileData}  from "./ProfileContext"
 
 export function Cta() {
   const [profile, setProfile] = React.useState<ProfileType[]>([]);
-  
   useEffect(() => {
     async function fetchData() {
       try {
-        const profileData = await getProfile();
+        const profileData = await fetchProfileData();
         setProfile(profileData);
       } catch (error) {
         console.error('Error fetching profile data:', error);
@@ -28,8 +26,8 @@ export function Cta() {
   //   "a Full Stack Developer with Django and Next.js.",
   //   "an Expert Web Scraper.",
   // ];
+  console.log("Profile12 : ",profile);
   
-  console.log(profile);
   const phrasescontainer = profile.map((profileItem) => {
     return [`${profileItem.headline}`,`${profileItem.headline2}`, `${profileItem.headline3}`]; 
   });
@@ -114,7 +112,7 @@ export function Cta() {
                         </h2>
                         <div className="flex items-center cursor-pointer pb-4 md:pb-0">
                           <h3 className="f-f-r text-lg lg:text-2xl font-semibold underline text-indigo-700">
-                            Contact Me
+                            Contact Me 
                           </h3>
                           <div className="pl-2">
                             <svg
