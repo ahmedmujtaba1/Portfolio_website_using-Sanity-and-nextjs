@@ -10,11 +10,11 @@ import {fetchProfileData}  from "./ProfileContext"
 
 export function Cta() {
   const [profile, setProfile] = React.useState<ProfileType[]>([]);
-
+  
   useEffect(() => {
     async function fetchData() {
       try {
-        const profileData = await fetchProfileData(); // Use the 'await' keyword here
+        const profileData = await getProfile();
         setProfile(profileData);
       } catch (error) {
         console.error('Error fetching profile data:', error);
@@ -23,12 +23,17 @@ export function Cta() {
 
     fetchData();
   }, []);
-  const phrases = [
-    "an Expert Python Developer.",
-    "a Full Stack Developer with Django and Next.js.",
-    "an Expert Web Scraper.",
-  ];
-
+  // const phrases = [
+  //   "an Expert Python Developer.",
+  //   "a Full Stack Developer with Django and Next.js.",
+  //   "an Expert Web Scraper.",
+  // ];
+  
+  console.log(profile);
+  const phrasescontainer = profile.map((profileItem) => {
+    return [`${profileItem.headline}`,`${profileItem.headline2}`, `${profileItem.headline3}`]; 
+  });
+  const phrases = phrasescontainer
   const [text, setText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);

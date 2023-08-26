@@ -5,6 +5,7 @@ export type ProfileType = {
   fullName: string,
   headline: string,
   headline2: string,
+  headline3: string,
   profileImage: {
     alt: string,
     image: string

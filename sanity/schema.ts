@@ -28,6 +28,13 @@ const profile = {
       description: "In one short sentence, what do you do?",
       validation: (Rule) => Rule.required().min(10).max(100),
     }),
+    defineField({
+      name: "headline3",
+      title: "Headline no 3",
+      type: "string",
+      description: "In one short sentence, what do you do?",
+      validation: (Rule) => Rule.required().min(10).max(100),
+    }),
     {
       name: "profileImage",
       title: "Profile Image",
