@@ -26,12 +26,12 @@ export function Cta() {
   //   "a Full Stack Developer with Django and Next.js.",
   //   "an Expert Web Scraper.",
   // ];
-  console.log("Profile12 : ",profile);
   
   const phrasescontainer = profile.map((profileItem) => {
     return [`${profileItem.headline}`,`${profileItem.headline2}`, `${profileItem.headline3}`]; 
   });
   const phrases = phrasescontainer
+  console.log("Phrases : ",phrases);
   const [text, setText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -52,7 +52,7 @@ export function Cta() {
               setCharIndex(0);
               setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
               setText("");
-            }, 1000); // Delay before clearing text
+            }, 1000);
           }
         } else {
           if (charIndex > 0) {
