@@ -22,8 +22,7 @@ export function Cta() {
 
     fetchData();
   }, []);
-  const phrasesContainer: string[] = profile.map((profileItem) => {
-    return [profileItem.headline, profileItem.headline2, profileItem.headline3].join(' ');
+
   });
   const [phrases, setPhrases] = useState<string[]>([])
   setPhrases(phrasesContainer)
