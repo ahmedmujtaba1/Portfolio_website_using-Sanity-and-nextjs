@@ -7,7 +7,6 @@ import myPic from "@/public/mypic.jpg";
 import type { ProfileType } from "@/types";
 import {TypingEffect} from './typing';
 
-
 export function Cta() {
   const [profile, setProfile] = React.useState<ProfileType[]>([]);
 
