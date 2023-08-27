@@ -21,13 +21,10 @@ export function Cta() {
 
     fetchData();
   }, []);
-  // const phrases = [
-  //   "an Expert Python Developer.",
-  //   "a Full Stack Developer with Django and Next.js.",
-  //   "an Expert Web Scraper.",
-  // ];
   
+  const phrases2 = []
   
+  x
   const phrasescontainer = profile.map((profileItem) => {
     return [`${profileItem.headline}`,`${profileItem.headline2}`, `${profileItem.headline3}`]; 
   });
