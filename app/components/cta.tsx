@@ -2,21 +2,32 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getProfile } from "@/sanity/lib/sanity.query";
 import myPic from "@/public/mypic.jpg";
 import type { ProfileType } from "@/types";
 import {TypingEffect} from './typing';
 
-type CtaProps = {
-  profile: ProfileType[];
-};
 
-export function Cta({ profile }: CtaProps) {
+export function Cta() {
+  const [profile, setProfile] = React.useState<ProfileType[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const profileData = await getProfile();
+        setProfile(profileData);
+      } catch (error) {
+        console.error('Error fetching profile data:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
   const phrasesContainer: string[] = profile.map((profileItem) => {
     return [profileItem.headline, profileItem.headline2, profileItem.headline3].join(' ');
   });
   const [phrases, setPhrases] = useState<string[]>([])
   setPhrases(phrasesContainer)
-  console.log("Phrases : ", profile);
 
   const handleDownload = () => {
     const fileUrl = "/CV.pdf";
@@ -64,7 +75,7 @@ export function Cta({ profile }: CtaProps) {
                       </div>
                     </div>
                   </div>
-                  <TypingEffect phrases={phrases} />
+                  {/* <TypingEffect phrases={phrases} /> */}
                 </div>
                 <div className="lg:w-1/3 md:w-1/2 w-full relative h-96 flex items-end justify-center">
                   <img
