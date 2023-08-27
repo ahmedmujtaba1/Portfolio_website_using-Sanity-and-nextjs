@@ -27,6 +27,7 @@ export function Cta() {
   //   "an Expert Web Scraper.",
   // ];
   
+  
   const phrasescontainer = profile.map((profileItem) => {
     return [`${profileItem.headline}`,`${profileItem.headline2}`, `${profileItem.headline3}`]; 
   });
