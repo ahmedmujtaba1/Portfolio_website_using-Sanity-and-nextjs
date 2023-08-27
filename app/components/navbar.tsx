@@ -8,8 +8,6 @@ import {fetchProfileData}  from "./ProfileContext"
 
 
 export function Navbar() {
-
-  // const profile = await fetchProfileData();
   const [show, setshow] = useState(false);
   const [profile, setProfile] = React.useState<ProfileType[]>([]);
 
