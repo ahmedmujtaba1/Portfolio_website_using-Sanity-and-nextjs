@@ -23,9 +23,7 @@ export function Cta() {
     fetchData();
   }, []);
 
-  });
   const [phrases, setPhrases] = useState<string[]>([])
-  setPhrases(phrasesContainer)
 
   const handleDownload = () => {
     const fileUrl = "/CV.pdf";
