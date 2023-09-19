@@ -1,26 +1,11 @@
-import { useState, useEffect } from "react";
-import type { ProfileType } from "@/types";
-// import {fetchProfileData}  from "./ProfileContext"
-import { getProfile } from "@/sanity/lib/sanity.query";
+"use client"
+import useSWR from 'swr'
 
-function useProfileData() {
-    const [profile, setProfile] = useState<ProfileType[]>([]);
-  
-    useEffect(() => {
-      async function fetchData() {
-        try {
-          const profileData = await getProfile();
-          setProfile(profileData);
-        } catch (error) {
-          console.error('Error fetching profile data:', error);
-        }
-      }
-  
-      fetchData();
-    }, []);
-  
-    return profile;
-  }
-  
-  export default useProfileData;
-  
+const FetchData = () => {
+  const url = "https://5jjb3p8x.api.sanity.io/v2023-08-19/data/query/production?query=*%5B%5D"
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const { data } = useSWR(url, fetcher)
+  return data[12]
+}
+
+export default FetchData

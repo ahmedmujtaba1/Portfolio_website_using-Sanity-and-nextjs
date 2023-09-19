@@ -1,28 +1,32 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import useSWR from 'swr'
 import Image from "next/image";
 import { getProfile } from "@/sanity/lib/sanity.query";
 import myPic from "@/public/mypic.jpg";
 import type { ProfileType } from "@/types";
 import {TypingEffect} from './typing';
 
+const url = "https://5jjb3p8x.api.sanity.io/v2023-08-19/data/query/production?query=*%5B10%5D"
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+function ProfileGet() {
+  const { data, error, isLoading } = useSWR(url, fetcher);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  return <div>{data.content}</div>;
+}
+
 export function Cta() {
-  const [profile, setProfile] = React.useState<ProfileType[]>([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const profileData = await getProfile();
-        setProfile(profileData);
-      } catch (error) {
-        console.error('Error fetching profile data:', error);
-      }
-    }
-
-    fetchData();
-  }, []);
-
+  const [profile, setProfile] = React.useState<ProfileType[]>([]);  
   const [phrases, setPhrases] = useState<string[]>([])
 
   const handleDownload = () => {
@@ -37,7 +41,8 @@ export function Cta() {
 
   return (
     <>
-      {profile.map((profileItem) => (
+    <ProfileGet />
+      {/* {profile.map((profileItem) => (
         <div id="cta" className="md:mx-auto md:container px-4">
           <div className="pt-24 md:pt-32">
             <div className="container mx-auto">
@@ -71,7 +76,7 @@ export function Cta() {
                       </div>
                     </div>
                   </div>
-                  {/* <TypingEffect phrases={phrases} /> */}
+                  {/* <TypingEffect phrases={phrases} />
                 </div>
                 <div className="lg:w-1/3 md:w-1/2 w-full relative h-96 flex items-end justify-center">
                   <img
@@ -112,7 +117,7 @@ export function Cta() {
                         <h4 className="text-base text-gray-600 font-normal tracking-normal leading-5">
                           Yearly Goal
                         </h4> */}
-                  </div>
+                 {/* </div>
                 </div>
               </div>
             </div>
@@ -164,7 +169,7 @@ export function Cta() {
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
     </>
   );
 }
