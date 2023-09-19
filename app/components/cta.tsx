@@ -29,6 +29,16 @@ export function Cta() {
   const [profile, setProfile] = React.useState<ProfileType[]>([]);  
   const [phrases, setPhrases] = useState<string[]>([])
 
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(url);
+      const data = await response.json();
+      setProfile(data);
+    }
+
+    fetchData();
+  }, []);
+
   const handleDownload = () => {
     const fileUrl = "/CV.pdf";
     const link = document.createElement("a");
@@ -41,8 +51,7 @@ export function Cta() {
 
   return (
     <>
-    <ProfileGet />
-      {/* {profile.map((profileItem) => (
+       {profile.map((profileItem) => (
         <div id="cta" className="md:mx-auto md:container px-4">
           <div className="pt-24 md:pt-32">
             <div className="container mx-auto">
@@ -76,7 +85,7 @@ export function Cta() {
                       </div>
                     </div>
                   </div>
-                  {/* <TypingEffect phrases={phrases} />
+                   <TypingEffect phrases={phrases} />
                 </div>
                 <div className="lg:w-1/3 md:w-1/2 w-full relative h-96 flex items-end justify-center">
                   <img
@@ -117,7 +126,7 @@ export function Cta() {
                         <h4 className="text-base text-gray-600 font-normal tracking-normal leading-5">
                           Yearly Goal
                         </h4> */}
-                 {/* </div>
+                 </div>
                 </div>
               </div>
             </div>
@@ -169,7 +178,7 @@ export function Cta() {
             </div>
           </div>
         </div>
-      ))} */}
+      ))}
     </>
   );
 }
