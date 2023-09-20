@@ -51,7 +51,7 @@ export function Cta() {
 
   return (
     <>
-       {profile.map((profileItem) => (
+       {/* {profile.map((profileItem) => ( */}
         <div id="cta" className="md:mx-auto md:container px-4">
           <div className="pt-24 md:pt-32">
             <div className="container mx-auto">
@@ -61,7 +61,7 @@ export function Cta() {
                     <h1 className="text-2xl lg:text-6xl md:leading-snug tracking-tighter f-f-l font-black">
                       Hey, I am{" "}
                       <span className="text-indigo-700">
-                        {profileItem.fullName}
+                        {/* {profile.fullName} */}
                       </span>
                     </h1>
 
@@ -178,7 +178,7 @@ export function Cta() {
             </div>
           </div>
         </div>
-      ))}
+      {/* ))} */}
     </>
   );
 }
