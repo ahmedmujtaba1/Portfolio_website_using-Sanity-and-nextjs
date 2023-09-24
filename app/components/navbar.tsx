@@ -42,7 +42,7 @@ export function Navbar({fullName, socialLinks}:Props) {
                       <i className="fa-brands fa-github fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"></i>
                     </Link>
                     <Link
-                      href={sociallink.facebook}
+                      href={sociallink.facebook || ""}
                       target="_blank"
                     >
                       <i className="fa-brands fa-facebook fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-700"></i>
@@ -155,7 +155,7 @@ export function Navbar({fullName, socialLinks}:Props) {
                     <i className="fa-brands fa-github fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
                   </Link>
                   <Link
-                    href={sociallink.facebook}
+                    href={sociallink.facebook || ""}
                     target="_blank"
                   >
                     <i className="fa-brands fa-facebook fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
