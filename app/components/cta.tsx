@@ -12,6 +12,7 @@ type Props = {
   headline1: string[];
   headline2: string[];
   headline3: string[];
+  shortBio: string[];
   projects: number[];
   experience: number[];
 };
@@ -24,6 +25,7 @@ export function Cta({
   headline1,
   headline2,
   headline3,
+  shortBio
 }: Props) {
   const phrases = [headline1, headline2, headline3];
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
@@ -153,12 +155,10 @@ export function Cta({
                 <div className="md:w-1/2 lg:w-2/3 w-full lg:pl-20 md:pl-10 sm:pl-0 pl-0">
                   <div className="py-2 text-color">
                     <h1 className="text-2xl lg:text-6xl tracking-tighter md:leading-snug f-f-l font-black">
-                      I am avaliable for Python and Web Development.
+                      I am avaliable for Web Scraping and Web Development.
                     </h1>
                     <h2 className="text-lg lg:text-3xl leading-7 md:leading-10 f-f-r py-8">
-                      I am an Expert Python Developer, Web Scraper and Full
-                      Stack Developer with Django and Next.js. I have experience
-                      of +2 yrs.
+                      {shortBio}
                     </h2>
                     <div className="flex items-center cursor-pointer pb-4 md:pb-0">
                       <h3 className="f-f-r text-lg lg:text-2xl font-semibold underline text-indigo-700">
