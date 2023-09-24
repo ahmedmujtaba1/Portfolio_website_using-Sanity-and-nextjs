@@ -17,6 +17,10 @@ export type ProfileType = {
   fullBio: PortableTextBlock[],
   location: string,
   resumeURL: string,
+  facebook: string,
+  github:string,
+  linkedin:string,
+  twitter:string,
   socialLinks: string[],
   skills: string[],
 };

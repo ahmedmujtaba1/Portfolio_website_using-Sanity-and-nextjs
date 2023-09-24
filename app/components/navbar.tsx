@@ -6,33 +6,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import {fetchProfileData}  from "./ProfileContext"
 
+type Props = {
+  fullName: string[];
+  github: string[];
+};
 
-export function Navbar() {
+export function Navbar({fullName, github}:Props) {
   const [show, setshow] = useState(false);
-  const [profile, setProfile] = React.useState<ProfileType[]>([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const profileData = await fetchProfileData();
-        setProfile(profileData);
-      } catch (error) {
-        console.error('Error fetching profile data:', error);
-      }
-    }
-
-    fetchData();
-  }, []);
   return (
     <>
-      {profile.map((profileItem) => (
           <div className=" bg-white ">
             <nav className="shadow-xl bg-white fixed top-0 w-full p-4 z-10">
-              {/* For large and Medium-sized Screen */}
               <div className="flex justify-between ">
                 <div className="hidden sm:flex flex-row items-center space-x-6">
                   <Link href="https://twitter.com/Ahmed_Mujtaba69" target="_blank">
-                    {/* <FontAwesomeIcon icon="twitter" bounce /> */}
                     <i className="fa-brands fa-twitter fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
                   </Link>
                   <Link
@@ -41,7 +28,7 @@ export function Navbar() {
                   >
                     <i className="fa-brands fa-linkedin-in fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-700"></i>
                   </Link>
-                  <Link href="https://github.com/ahmedmujtaba1" target="_blank">
+                  <Link href={"https://github.com/" + github[0]} target="_blank">
                     <i className="fa-brands fa-github fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"></i>
                   </Link>
                   <Link
@@ -66,7 +53,7 @@ export function Navbar() {
                   </svg>
                   
                         <h1 className=" font-normal text-2xl leading-6 text-gray-800">
-                          {profileItem.fullName}
+                          {fullName}
                         </h1>
                     
                 
@@ -140,7 +127,6 @@ export function Navbar() {
                   </svg>
                 </div>
               </div>
-              {/* Mobile and small-screen devices (toggle Menu) */}
               <div
                 id="MobileNavigation"
                 className={`${show ? "block" : "hidden"} sm:hidden mt-4 mx-auto`}
@@ -173,7 +159,7 @@ export function Navbar() {
               </div>
             </nav>
           </div>
-      ))}
+      {/* ))} */}
     </>
   );
 }

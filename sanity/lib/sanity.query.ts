@@ -18,6 +18,10 @@ export async function getProfile() {
       email,
       "resumeURL": resumeURL.asset->url,
       socialLinks,
+      github,
+      linkedin,
+      twitter,
+      facebook,
       skills
     }`
   );

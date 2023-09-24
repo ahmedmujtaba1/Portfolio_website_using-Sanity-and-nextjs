@@ -13,13 +13,13 @@ export default async function About() {
   
   return (
     <>
-        <Navbar/> 
-        <Cta fullName={profile.map((item)=> item.fullName)} projects={profile.map((item)=> item.projects)} experience={profile.map((item)=> item.experience)} headline1={profile.map((item)=> item.headline)} headline2={profile.map((item)=> item.headline2)} headline3={profile.map((item)=> item.headline3)} /> 
-        <Services/>
-        <Projects/>
-        <Testimonials/>
-        <Contact/>
-        <Footer/>
+        <Navbar fullName={profile.map((item)=> item.fullName)} github={profile.map((item)=> item.github)}/> 
+        {/* <Cta fullName={profile.map((item)=> item.fullName)} projects={profile.map((item)=> item.projects)} experience={profile.map((item)=> item.experience)} headline1={profile.map((item)=> item.headline)} headline2={profile.map((item)=> item.headline2)} headline3={profile.map((item)=> item.headline3)} />  */}
+        {/* <Services/> */}
+        {/* <Projects/> */}
+        {/* <Testimonials/> */}
+        {/* <Contact/> */}
+        {/* <Footer/> */}
     </>
   );
 }
