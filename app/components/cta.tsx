@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import myPic from "@/public/mypic.jpg";
 import type { ProfileType } from "@/types";
-// import {TypingEffect} from './typing';
+import {TypingEffect} from './typing';
 
 type Props = {
   fullName: string[];
@@ -17,47 +17,7 @@ type Props = {
 
 
 export function Cta({fullName, projects, experience, headline1, headline2, headline3}:Props) {
-  const phrases = [headline1, headline2, headline3]
-
-  const [text, setText] = useState("");
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [typing, setTyping] = useState(true);
-  const [cursorVisible, setCursorVisible] = useState(true);
-
-  const updateTyping = () => {
-    if (typing) {
-      if (charIndex < phrases[phraseIndex].length) {
-        setText((prevText) => prevText + phrases[phraseIndex][charIndex]);
-        setCharIndex((prevIndex) => prevIndex + 1);
-      } else {
-        setTyping(false);
-        setTimeout(() => {
-          setTyping(true);
-          setCharIndex(0);
-          setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-          setText("");
-        }, 1000);
-      }
-    } else {
-      if (charIndex > 0) {
-        setText((prevText) => prevText.slice(0, -1));
-        setCharIndex((prevIndex) => prevIndex - 1);
-      } else {
-        setTyping(true);
-      }
-    }
-
-    requestAnimationFrame(updateTyping);
-  };
-
-  const updateCursor = () => {
-    setCursorVisible((prev) => !prev);
-    requestAnimationFrame(updateCursor);
-  };
-
-  requestAnimationFrame(updateTyping);
-  updateCursor();
+  const phrases = [headline1[0], headline2[0], headline3[0]]
 
   const handleDownload = () => {
     const fileUrl = "/CV.pdf";
@@ -105,10 +65,7 @@ export function Cta({fullName, projects, experience, headline1, headline2, headl
                       </div>
                     </div>
                   </div>
-                  <h2 className="text-lg lg:text-3xl lg:leading-7 md:leading-10 f-f-r py-4 md:py-8">
-                    I'm <span className="text-indigo-700">{text}</span>
-                    <span className={cursorVisible ? "opacity-100" : "opacity-0"}>|</span>
-                  </h2>
+                  <TypingEffect phrases={phrases}/>
                 </div>
                 <div className="lg:w-1/3 md:w-1/2 w-full relative h-96 flex items-end justify-center">
                   <img
