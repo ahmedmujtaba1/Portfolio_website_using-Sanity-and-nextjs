@@ -6,18 +6,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import {fetchProfileData}  from "./ProfileContext"
 
+interface ISocialLinks {
+  github: string
+}
 type Props = {
   fullName: string[];
-  github: string[];
+  github: Object;
 };
+
 
 export function Navbar({fullName, github}:Props) {
   const [show, setshow] = useState(false);
+  const socialLinks= github
+  console.log(github);
+  
   return (
     <>
           <div className=" bg-white ">
             <nav className="shadow-xl bg-white fixed top-0 w-full p-4 z-10">
               <div className="flex justify-between ">
+             
                 <div className="hidden sm:flex flex-row items-center space-x-6">
                   <Link href="https://twitter.com/Ahmed_Mujtaba69" target="_blank">
                     <i className="fa-brands fa-twitter fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-600"></i>
@@ -28,7 +36,7 @@ export function Navbar({fullName, github}:Props) {
                   >
                     <i className="fa-brands fa-linkedin-in fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer hover:text-blue-700"></i>
                   </Link>
-                  <Link href={"https://github.com/" + github[0]} target="_blank">
+                  <Link href={"#"} target="_blank">
                     <i className="fa-brands fa-github fa-bounce fa-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 cursor-pointer"></i>
                   </Link>
                   <Link
