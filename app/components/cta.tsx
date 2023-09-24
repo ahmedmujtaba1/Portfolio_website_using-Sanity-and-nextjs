@@ -1,10 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import myPic from "@/public/mypic.jpg";
 import type { ProfileType } from "@/types";
-import {TypingEffect} from './typing';
+// import {TypingEffect} from './typing';
+
 
 type Props = {
   fullName: string[];
@@ -16,8 +17,19 @@ type Props = {
 };
 
 
-export function Cta({fullName, projects, experience, headline1, headline2, headline3}:Props) {
-  const phrases = [headline1[0], headline2[0], headline3[0]]
+export function Cta({
+  fullName,
+  projects,
+  experience,
+  headline1,
+  headline2,
+  headline3,
+}: Props) {
+  const phrases = [headline1, headline2, headline3];
+  const [text, setText] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
 
   const handleDownload = () => {
     const fileUrl = "/CV.pdf";
@@ -29,6 +41,37 @@ export function Cta({fullName, projects, experience, headline1, headline2, headl
     document.body.removeChild(link);
   };
 
+  useEffect(() => {
+    const typingInterval = setInterval(() => {
+      if (isTyping) {
+        if (charIndex < phrases[phraseIndex].length) {
+          setText((prevText) => prevText + phrases[phraseIndex][charIndex]);
+          setCharIndex((prevIndex) => prevIndex + 1);
+        } else {
+          setIsTyping(false);
+          setTimeout(() => {
+            setIsTyping(true);
+            setCharIndex(0);
+            setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+            setText("");
+          }, 1000);
+        }
+      } else {
+        if (charIndex > 0) {
+          setText((prevText) => prevText.slice(0, -1));
+          setCharIndex((prevIndex) => prevIndex - 1);
+        } else {
+          setIsTyping(true);
+        }
+      }
+    }, 50);
+
+    return () => {
+      clearInterval(typingInterval);
+    };
+  }, [charIndex, isTyping, phraseIndex]);
+
+  const cursorVisible = isTyping && charIndex === phrases[phraseIndex].length;
   return (
     <>
        {/* {profile.map((profileItem) => ( */}
@@ -65,7 +108,11 @@ export function Cta({fullName, projects, experience, headline1, headline2, headl
                       </div>
                     </div>
                   </div>
-                  <TypingEffect phrases={phrases}/>
+                  {/* <TypingEffect phrases={phrases}/> */}
+                  <h2 className="text-lg lg:text-3xl lg:leading-7 md:leading-10 f-f-r py-4 md:py-8">
+                    I'm <span className="text-indigo-700">{text}</span>
+                    <span className={cursorVisible ? "opacity-100" : "opacity-0"}>|</span>
+                  </h2>
                 </div>
                 <div className="lg:w-1/3 md:w-1/2 w-full relative h-96 flex items-end justify-center">
                   <img
