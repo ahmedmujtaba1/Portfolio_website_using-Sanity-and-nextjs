@@ -1,4 +1,5 @@
 import { getProfile } from "@/sanity/lib/sanity.query";
+import { getServices } from "@/sanity/lib/sanity.query";
 import type { ProfileType } from "@/types";
 import { Navbar } from "@/app/components/navbar"
 import { Cta } from "@/app/components/cta"

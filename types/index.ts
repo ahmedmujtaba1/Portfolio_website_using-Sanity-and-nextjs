@@ -30,4 +30,9 @@ export type ProfileType = {
   skills: string[],
 };
 
-
+export type ServicesType = {
+  _id: string;
+  fontAwesomeClass: string;
+  title: string;
+  description: string;
+};
