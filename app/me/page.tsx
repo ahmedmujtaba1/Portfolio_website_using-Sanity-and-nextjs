@@ -14,7 +14,7 @@ export default async function About() {
   return (
     <>
         <Navbar/> 
-        <Cta fullName={profile.map((item)=> item.fullName)} projects={profile.map((item)=> item.projects)} /> 
+        <Cta fullName={profile.map((item)=> item.fullName)} projects={profile.map((item)=> item.projects)} experience={profile.map((item)=> item.experience)} /> 
         <Services/>
         <Projects/>
         <Testimonials/>

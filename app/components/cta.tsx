@@ -11,10 +11,11 @@ import type { ProfileType } from "@/types";
 type Props = {
   fullName: string[];
   projects: number[];
+  experience: number[];
 };
 
 
-export function Cta({fullName, projects}:Props) {
+export function Cta({fullName, projects, experience}:Props) {
   const [profile, setProfile] = React.useState<ProfileType[]>([]);  
   const [phrases, setPhrases] = useState<string[]>([])
 
@@ -91,7 +92,7 @@ export function Cta({fullName, projects}:Props) {
                       <div>
                         <div className="flex items-center pl-3 text-green-400">
                           <p className="text-green-400 text-xs tracking-wide font-bold leading-normal pl-1">
-                            2 yrs +
+                            {experience} yrs +
                           </p>
                         </div>
                         <p className="font-normal text-xs text-right leading-4 text-green-400 tracking-normal">
