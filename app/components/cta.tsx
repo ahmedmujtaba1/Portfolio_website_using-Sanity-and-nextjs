@@ -6,38 +6,14 @@ import Image from "next/image";
 import { getProfile } from "@/sanity/lib/sanity.query";
 import myPic from "@/public/mypic.jpg";
 import type { ProfileType } from "@/types";
-import {TypingEffect} from './typing';
+// import {TypingEffect} from './typing';
 
-const url = "https://5jjb3p8x.api.sanity.io/v2023-08-19/data/query/production?query=*%5B10%5D"
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-function ProfileGet() {
-  const { data, error, isLoading } = useSWR(url, fetcher);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  return <div>{data.content}</div>;
-}
 
 export function Cta() {
   const [profile, setProfile] = React.useState<ProfileType[]>([]);  
   const [phrases, setPhrases] = useState<string[]>([])
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(url);
-      const data = await response.json();
-      setProfile(data);
-    }
-
-    fetchData();
-  }, []);
 
   const handleDownload = () => {
     const fileUrl = "/CV.pdf";
@@ -51,17 +27,17 @@ export function Cta() {
 
   return (
     <>
-       {/* {profile.map((profileItem) => ( */}
+       {profile.map((profileItem) => (
         <div id="cta" className="md:mx-auto md:container px-4">
           <div className="pt-24 md:pt-32">
             <div className="container mx-auto">
               <div className="flex flex-wrap items-center pb-12">
                 <div className="md:w-1/2 lg:w-2/3 w-full xl:pr-20 md:pr-6">
                   <div className="py-2 text-color">
-                    <h1 className="text-2xl lg:text-6xl md:leading-snug tracking-tighter f-f-l font-black">
+                    <h1 className="text-2xl lg:text-6xl md:leading-snug tracking-tighter">
                       Hey, I am{" "}
                       <span className="text-indigo-700">
-                        {/* {profile.fullName} */}
+                        {profileItem.fullName}
                       </span>
                     </h1>
 
@@ -85,7 +61,7 @@ export function Cta() {
                       </div>
                     </div>
                   </div>
-                   <TypingEffect phrases={phrases} />
+                   {/* <TypingEffect phrases={phrases} /> */}
                 </div>
                 <div className="lg:w-1/3 md:w-1/2 w-full relative h-96 flex items-end justify-center">
                   <img
@@ -178,7 +154,7 @@ export function Cta() {
             </div>
           </div>
         </div>
-      {/* ))} */}
+       ))}
     </>
   );
 }
