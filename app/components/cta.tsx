@@ -26,10 +26,10 @@ export function Cta({
   headline3,
 }: Props) {
   const phrases = [headline1, headline2, headline3];
-  const [text, setText] = useState("");
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isTyping, setIsTyping] = useState(true);
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+    const [currentText, setCurrentText] = useState("");
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const delay = 100;
 
   const handleDownload = () => {
     const fileUrl = "/CV.pdf";
@@ -42,36 +42,22 @@ export function Cta({
   };
 
   useEffect(() => {
-    const typingInterval = setInterval(() => {
-      if (isTyping) {
-        if (charIndex < phrases[phraseIndex].length) {
-          setText((prevText) => prevText + phrases[phraseIndex][charIndex]);
-          setCharIndex((prevIndex) => prevIndex + 1);
-        } else {
-          setIsTyping(false);
-          setTimeout(() => {
-            setIsTyping(true);
-            setCharIndex(0);
-            setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-            setText("");
-          }, 1000);
-        }
-      } else {
-        if (charIndex > 0) {
-          setText((prevText) => prevText.slice(0, -1));
-          setCharIndex((prevIndex) => prevIndex - 1);
-        } else {
-          setIsTyping(true);
-        }
-      }
-    }, 50);
+    if (currentIndex < phrases[currentPhraseIndex].length) {
+      const timeout = setTimeout(() => {
+        setCurrentText((prevText) => prevText + phrases[currentPhraseIndex][currentIndex]);
+        setCurrentIndex((prevIndex) => prevIndex + 1);
+      }, delay);
 
-    return () => {
-      clearInterval(typingInterval);
-    };
-  }, [charIndex, isTyping, phraseIndex]);
+      return () => clearTimeout(timeout);
+    } else {
+      setTimeout(() => {
+        setCurrentText("");
+        setCurrentIndex(0);
+        setCurrentPhraseIndex((prevPhraseIndex) => (prevPhraseIndex + 1) % phrases.length);
+      }, 1000); 
+    }
+  }, [currentIndex, delay, phrases, currentPhraseIndex]);
 
-  const cursorVisible = isTyping && charIndex === phrases[phraseIndex].length;
   return (
     <>
        {/* {profile.map((profileItem) => ( */}
@@ -110,8 +96,11 @@ export function Cta({
                   </div>
                   {/* <TypingEffect phrases={phrases}/> */}
                   <h2 className="text-lg lg:text-3xl lg:leading-7 md:leading-10 f-f-r py-4 md:py-8">
-                    I'm <span className="text-indigo-700">{text}</span>
-                    <span className={cursorVisible ? "opacity-100" : "opacity-0"}>|</span>
+                    I'm <span className="text-indigo-700">
+                      <span className="typewriter-container">
+                        <span className="typewriter-text">{currentText}</span>
+                      </span>
+                    </span>
                   </h2>
                 </div>
                 <div className="lg:w-1/3 md:w-1/2 w-full relative h-96 flex items-end justify-center">
