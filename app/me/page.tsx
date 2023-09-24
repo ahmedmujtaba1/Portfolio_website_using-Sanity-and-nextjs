@@ -8,13 +8,13 @@ import { Testimonials } from "@/app/components/testimonals"
 import { Contact } from "@/app/components/contact"
 import { Footer } from "@/app/components/footer"
 
-export default function About() {
-  
+export default async function About() {
+  const profile: ProfileType[] = await getProfile();
   
   return (
     <>
         <Navbar/> 
-        <Cta/> 
+        <Cta fullName={profile.map((item)=> item.fullName)} projects={profile.map((item)=> item.projects)} /> 
         <Services/>
         <Projects/>
         <Testimonials/>

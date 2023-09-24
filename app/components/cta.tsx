@@ -8,9 +8,13 @@ import myPic from "@/public/mypic.jpg";
 import type { ProfileType } from "@/types";
 // import {TypingEffect} from './typing';
 
+type Props = {
+  fullName: string[];
+  projects: number[];
+};
 
 
-export function Cta() {
+export function Cta({fullName, projects}:Props) {
   const [profile, setProfile] = React.useState<ProfileType[]>([]);  
   const [phrases, setPhrases] = useState<string[]>([])
 
@@ -27,7 +31,7 @@ export function Cta() {
 
   return (
     <>
-       {profile.map((profileItem) => (
+       {/* {profile.map((profileItem) => ( */}
         <div id="cta" className="md:mx-auto md:container px-4">
           <div className="pt-24 md:pt-32">
             <div className="container mx-auto">
@@ -37,7 +41,7 @@ export function Cta() {
                     <h1 className="text-2xl lg:text-6xl md:leading-snug tracking-tighter">
                       Hey, I am{" "}
                       <span className="text-indigo-700">
-                        {profileItem.fullName}
+                        {fullName}
                       </span>
                     </h1>
 
@@ -77,7 +81,7 @@ export function Cta() {
                         </div>
                         <div className="ml-6">
                           <h3 className="mb-1 leading-5 text-gray-800 font-bold text-2xl">
-                            +
+                            {projects} +
                           </h3>
                           <p className="text-gray-600 text-sm tracking-normal font-normal leading-5">
                             Projects
@@ -154,7 +158,7 @@ export function Cta() {
             </div>
           </div>
         </div>
-       ))}
+       {/* ))} */}
     </>
   );
 }
