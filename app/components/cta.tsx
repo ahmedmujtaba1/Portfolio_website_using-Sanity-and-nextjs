@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import useSWR from 'swr'
 import Image from "next/image";
-import { getProfile } from "@/sanity/lib/sanity.query";
 import myPic from "@/public/mypic.jpg";
 import type { ProfileType } from "@/types";
 // import {TypingEffect} from './typing';
