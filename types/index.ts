@@ -21,7 +21,12 @@ export type ProfileType = {
   github:string,
   linkedin:string,
   twitter:string,
-  socialLinks: string[],
+  socialLinks: {
+    github : string,
+    facebook : string,
+    linkedin : string,
+    twitter : string,
+  },
   skills: string[],
 };
 
