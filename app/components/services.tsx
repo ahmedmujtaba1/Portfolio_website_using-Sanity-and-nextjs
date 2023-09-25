@@ -3,7 +3,7 @@ import { getServices } from "@/sanity/lib/sanity.query";
 
 export const Services = async () => {
   const services: ServicesType[] = await getServices();
-  console.log(services);
+  // console.log(services);
 
   return (
     <>

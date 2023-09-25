@@ -10,9 +10,7 @@ import { Footer } from "@/app/components/footer"
 
 export default async function About() {
   const profile: ProfileType[] = await getProfile();
-  console.log("profile  : ", profile);
-  
-
+  // console.log("profile  : ", profile);
   return (
     <>
         <Navbar fullName={profile.map((item)=> item.fullName)} socialLinks={profile.map((item)=> item.socialLinks)}/>
