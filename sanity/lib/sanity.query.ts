@@ -33,3 +33,17 @@ export async function getServices() {
     }`
   );
 }
+
+export async function getProjects() {
+  return client.fetch(
+    groq`*[_type == "projects"]{
+      _id,
+      title,
+      image {alt, "image": asset->url},
+      githubRepo,
+      hostedURL,
+      techniques
+    }`
+  );
+}
+
