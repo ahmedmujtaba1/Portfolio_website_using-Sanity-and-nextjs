@@ -1,13 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
-import smitCopy from "@/public/smit_copy.jpg";
 import type { ProjectsType } from "@/types";
 import { getProjects } from "@/sanity/lib/sanity.query";
-import portfolio from "@/public/nlp_portfolio.jpg";
 
 export const Projects = async () => {
   const projects: ProjectsType[] = await getProjects();
-  // console.log(services);
+  console.log("Projects : ", projects);
   return (
     <>
       <section id="projects" className="py-24 text-center">
@@ -60,11 +57,11 @@ export const Projects = async () => {
                     </div>
                     <div className="text-center px-5 py-3">
                       <h3 className="team-name">{project.title}</h3>
-                      <p>Tailwind Css, Bootstrap</p>
+                      <p>{project.techniques.join(", ")}</p>
                     </div>
                   </div>
                 </div>
-                <div className="max-w-sm sm:w-1/2 md:w-1/2 lg:w-1/3">
+                {/* <div className="max-w-sm sm:w-1/2 md:w-1/2 lg:w-1/3">
                   <div className="team-item">
                     <div className="team-img relative">
                       <Image
@@ -153,7 +150,7 @@ export const Projects = async () => {
                       <p>Tailwind Css, Bootstrap</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </>
             ))}
           </div>
