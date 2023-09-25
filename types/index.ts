@@ -36,3 +36,16 @@ export type ServicesType = {
   title: string;
   description: string;
 };
+
+export type ProjectsType = {
+  _id: string;
+  title: string;
+  image: {
+    alt: string;
+    image: string;
+  };
+  githubRepo: string;
+  hostedURL: string;
+  techniques: string[];
+};
+

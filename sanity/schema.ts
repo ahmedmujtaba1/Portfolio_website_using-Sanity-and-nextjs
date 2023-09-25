@@ -161,6 +161,53 @@ const services = {
   ],
 };
 
+const projects = {
+  name: "projects",
+  title: "Projects",
+  type: "document",
+  fields: [
+    defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "image",
+      title: "Image",
+      type: "image",
+      description: "Upload an image for the project",
+      options: { hotspot: true },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "githubRepo",
+      title: "GitHub Repository URL",
+      type: "url",
+      initialValue: "https://github.com/",
+      validation: (rule) => rule.uri({ scheme: ["http", "https"] }).required(),
+    }),
+    defineField({
+      name: "hostedURL",
+      title: "Hosted URL",
+      type: "url",
+      initialValue: "https://example.com/",
+      validation: (rule) => rule.uri({ scheme: ["http", "https"] }).required(),
+    }),
+    defineField({
+      name: "techniques",
+      title: "Techniques or Languages Used",
+      type: "array",
+      description: "Add a list of techniques or languages used",
+      of: [{ type: "string" }],
+      validation: (rule) => rule.min(1),
+    }),
+  ],
+};
+
+export default projects;
+
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [profile, services],
+  types: [profile, services, projects],
 }
