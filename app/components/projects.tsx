@@ -26,6 +26,8 @@ export const Projects = async () => {
                       <Image
                         className="img-fluid"
                         src={project.image.image}
+                        width={50}
+                        height={50}
                         alt="Saylani Mass IT Training"
                       />
                       <div className="team-overlay">
